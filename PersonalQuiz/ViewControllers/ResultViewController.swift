@@ -9,12 +9,13 @@ import UIKit
 
 class ResultViewController: UIViewController {
     
-    var answers: [Answer] = []
+    var questions: [Question]!
+    var answers: [Answer]!
     
-    var dog = 0
-    var cat = 0
-    var rabbit = 0
-    var turtle = 0
+    
+    
+    var answersCollection = ["dog" : 0, "cat" : 0, "rabbit" : 0, "turtle" : 0]
+    
     
     
     
@@ -28,23 +29,25 @@ class ResultViewController: UIViewController {
         
         for answer in answers {
             if answer.animal == .dog {
-                dog += 1
+                answersCollection["dog"]! += 1
             } else if answer.animal == .cat {
-                cat += 1
+                answersCollection["cat"]! += 1
             } else if answer.animal == .rabbit {
-                rabbit += 1
+                answersCollection["rabbit"]! += 1
             } else if answer.animal == .turtle {
-                turtle += 1
+                answersCollection["turtle"]! += 1
             }
         }
         
-        let arrayAnsswers = [dog, cat, rabbit, turtle]
-        let answerSorted = arrayAnsswers.sorted { $0 > $1 }
+        let answerSorted = answersCollection.sorted { $0.value > $1.value }
+        if answerSorted.first?.key == "dog" {
+            
+        }
        
         
-        print(dog, cat, rabbit, turtle)
-        print(answerSorted)
     }
+    
+    
     
     
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
