@@ -59,8 +59,8 @@ class ResultViewController: UIViewController {
         } else if answerSorted.first?.key == Animal.turtle {
             answerLabel.text = "Вы - \(Animal.turtle.rawValue)"
             difinitionLabel.text = Animal.turtle.definition
-        
-    }
+            
+        }
     }
     
     
