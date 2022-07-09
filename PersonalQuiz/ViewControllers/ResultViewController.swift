@@ -9,12 +9,19 @@ import UIKit
 
 class ResultViewController: UIViewController {
     
+    @IBOutlet weak var answerLabel: UILabel!
+    @IBOutlet weak var difinitionLabel: UILabel!
     var questions: [Question]!
     var answers: [Answer]!
     
     
     
-    var answersCollection = ["dog" : 0, "cat" : 0, "rabbit" : 0, "turtle" : 0]
+    var answersCollection = [
+        Animal.dog : 0,
+        Animal.cat : 0,
+        Animal.rabbit : 0,
+        Animal.turtle : 0
+    ]
     
     
     
@@ -29,22 +36,31 @@ class ResultViewController: UIViewController {
         
         for answer in answers {
             if answer.animal == .dog {
-                answersCollection["dog"]! += 1
+                answersCollection[Animal.dog]! += 1
             } else if answer.animal == .cat {
-                answersCollection["cat"]! += 1
+                answersCollection[Animal.cat]! += 1
             } else if answer.animal == .rabbit {
-                answersCollection["rabbit"]! += 1
+                answersCollection[Animal.rabbit]! += 1
             } else if answer.animal == .turtle {
-                answersCollection["turtle"]! += 1
+                answersCollection[Animal.turtle]! += 1
             }
         }
         
         let answerSorted = answersCollection.sorted { $0.value > $1.value }
-        if answerSorted.first?.key == "dog" {
-            
-        }
-       
+        if answerSorted.first?.key == Animal.dog {
+            answerLabel.text = "Вы - \(Animal.dog.rawValue)"
+            difinitionLabel.text = Animal.dog.definition
+        } else if answerSorted.first?.key == Animal.cat {
+            answerLabel.text = "Вы - \(Animal.cat.rawValue)"
+            difinitionLabel.text = Animal.cat.definition
+        } else if answerSorted.first?.key == Animal.rabbit {
+            answerLabel.text = "Вы - \(Animal.rabbit.rawValue)"
+            difinitionLabel.text = Animal.rabbit.definition
+        } else if answerSorted.first?.key == Animal.turtle {
+            answerLabel.text = "Вы - \(Animal.turtle.rawValue)"
+            difinitionLabel.text = Animal.turtle.definition
         
+    }
     }
     
     
