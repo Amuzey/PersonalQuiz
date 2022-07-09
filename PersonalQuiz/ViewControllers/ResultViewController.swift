@@ -23,16 +23,10 @@ class ResultViewController: UIViewController {
         Animal.turtle : 0
     ]
     
-    
-    
-    
-    // 1. Передать массив с ответами на экран с результатами
-    // 2. Определить наиболее часто встречающийся тип животного
-    // 3. Отобразить результаты в соответствии с этим животным
-    // 4. Избавиться от кнопки возврата назад на экране результатов
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.hidesBackButton = true
         
         for answer in answers {
             if answer.animal == .dog {
@@ -63,14 +57,7 @@ class ResultViewController: UIViewController {
         }
     }
     
-    
-    
-    
     @IBAction func doneButtonPressed(_ sender: UIBarButtonItem) {
         navigationController?.dismiss(animated: true)
-    }
-    
-    deinit {
-        print("ResultViewController has been deallocated")
     }
 }
