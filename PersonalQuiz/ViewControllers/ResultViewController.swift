@@ -16,7 +16,7 @@ class ResultViewController: UIViewController {
     
     
     
-    var answersCollection = [
+    var responseСounter = [
         Animal.dog : 0,
         Animal.cat : 0,
         Animal.rabbit : 0,
@@ -30,17 +30,18 @@ class ResultViewController: UIViewController {
         
         for answer in answers {
             if answer.animal == .dog {
-                answersCollection[Animal.dog]! += 1
+                responseСounter[Animal.dog]? += 1
             } else if answer.animal == .cat {
-                answersCollection[Animal.cat]! += 1
+                responseСounter[Animal.cat]? += 1
             } else if answer.animal == .rabbit {
-                answersCollection[Animal.rabbit]! += 1
+                responseСounter[Animal.rabbit]? += 1
             } else if answer.animal == .turtle {
-                answersCollection[Animal.turtle]! += 1
+                responseСounter[Animal.turtle]? += 1
             }
         }
         
-        let answerSorted = answersCollection.sorted { $0.value > $1.value }
+        let answerSorted = responseСounter.sorted { $0.value > $1.value }
+        
         if answerSorted.first?.key == Animal.dog {
             answerLabel.text = "Вы - \(Animal.dog.rawValue)"
             difinitionLabel.text = Animal.dog.definition
